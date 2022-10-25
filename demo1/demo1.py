@@ -15,7 +15,7 @@ from OCC.Core.gp import gp_Pnt, gp_Ax2, gp_Dir, gp_Circ
 from ifcopenshell.util.element import copy_deep
 import numpy as np
 import pickle
-from occ_generate_shape import Patcher
+from patcher import Patcher
 
 
 O = 0., 0., 0.
