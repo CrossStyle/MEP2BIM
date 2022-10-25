@@ -18,7 +18,7 @@ python demo1.py or python demo2.py
 
 ## IFC  Visualization
 
-We recommend using [BIMVision](https://bimvision.eu/download/) software for IFC visualization.
+We recommend using [BIMVision](https://bimvision.eu/download/) software to visualize the IFC.
 
 Demo 1:
 
