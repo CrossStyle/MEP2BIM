@@ -6,6 +6,7 @@ This is the implementation of MEP2BIM, including two MEP system demos and a data
 
 ```
 conda create -n ifc
+conda activate ifc
 conda install -c conda-forge -c oce -c dlr-sc -c ifcopenshell ifcopenshell
 conda install -c conda-forge pythonocc-core=7.6.2
 ```
