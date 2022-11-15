@@ -88,7 +88,7 @@ template = """ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('ViewDefinition [CoordinationView]'),'2;1');
 FILE_NAME('%(filename)s','%(timestring)s',('%(creator)s'),('%(organization)s'),'%(application)s','%(application)s','');
-FILE_SCHEMA(('IFC2X3'));
+FILE_SCHEMA(('IFC4'));
 ENDSEC;
 DATA;
 #1=IFCPERSON($,$,'%(creator)s',$,$,$,$,$);
@@ -226,6 +226,10 @@ def create_ifc_flow_terminal(length, width, cx, cy, cz, color):
 
     rep = ifcopenshell.geom.tesselate(ifcfile.schema, myBody, 1.)
     ifcfile.add(rep)
+
+    context = ifcfile.by_type("IfcGeometricRepresentationContext")[0]
+    rep.Representations[0].ContextOfItems = context
+
     OwnerHistory = ifcfile.by_type('IfcOwnerHistory')[0]
     terminal = ifcfile.create_entity('IfcFlowTerminal', ifcopenshell.guid.new())
     terminal.OwnerHistory = OwnerHistory
@@ -260,8 +264,12 @@ def create_ifc_rect(x1, y1, x2, y2, name, color=None):
     myBody = BRepPrimAPI_MakeBox(p1, p2).Shape()
     rep = ifcopenshell.geom.tesselate(ifcfile.schema, myBody, 1.)
     ifcfile.add(rep)
+
+    context = ifcfile.by_type("IfcGeometricRepresentationContext")[0]
+    rep.Representations[0].ContextOfItems = context
+
     OwnerHistory = ifcfile.by_type('IfcOwnerHistory')[0]
-    entity = ifcfile.create_entity('IfcBuildingElementProxy', ifcopenshell.guid.new())
+    entity = ifcfile.create_entity('IfcAirTerminalBox', ifcopenshell.guid.new())
     entity.Name = name
     entity.OwnerHistory = OwnerHistory
     entity.Representation = rep
@@ -306,6 +314,10 @@ def new_pipe3d(input_skeleton):
 def create_ifc_entity(input_shpae, name, type, color):
     rep = ifcopenshell.geom.tesselate(ifcfile.schema, input_shpae, 1.)
     ifcfile.add(rep)
+
+    context = ifcfile.by_type("IfcGeometricRepresentationContext")[0]
+    rep.Representations[0].ContextOfItems = context
+
     OwnerHistory = ifcfile.by_type('IfcOwnerHistory')[0]
     pipe = ifcfile.create_entity(type, ifcopenshell.guid.new())
     pipe.Name = name
@@ -384,7 +396,7 @@ def main():
 
     contour = equipment['vav_4']
     for key in contour.keys():
-        generate_ifc_polygon('IfcBuildingElementProxy', 'vav_4', contour[key], 0.0, 500.0, scale, [0.0, 0.98, 0.99])
+        generate_ifc_polygon('IfcAirTerminalBox', 'vav_4', contour[key], 0.0, 500.0, scale, [0.0, 0.98, 0.99])
     contour = equipment['duct']
     for key in contour.keys():
         generate_ifc_polygon('IfcFlowSegment', 'duct', contour[key], 0.0, 500.0, scale, [0.93, 0.75, 0.38])
