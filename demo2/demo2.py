@@ -207,7 +207,7 @@ def main():
         muffler = pickle.load(tf)
     muffler_contour = muffler['contour']
     for key in muffler_contour.keys():
-        generate_ifc_polygon('IfcFlowTerminal', 'vav_5', muffler_contour[key], 0.0, 500.0, scale,
+        generate_ifc_polygon('IfcAirTerminalBox', 'vav_5', muffler_contour[key], 0.0, 500.0, scale,
                              [0.0, 0., 1.0])
 
     with open("pkl/air_outlet.pkl", "rb") as tf:
