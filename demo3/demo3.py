@@ -18,10 +18,9 @@ from ifcopenshell.util.element import copy_deep
 from ifcopenshell.util.placement import get_local_placement
 import numpy as np
 import pickle
-from occ_generate_shape import Patcher
 import random
-
 from pipe_creation import create_sphere, Patcher
+
 
 O = 0., 0., 0.
 X = 1., 0., 0.
