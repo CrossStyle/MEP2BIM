@@ -21,7 +21,7 @@ import pickle
 from occ_generate_shape import Patcher
 import random
 
-from src.pipe_creation.pipe_creation import create_sphere
+from pipe_creation import create_sphere, Patcher
 
 O = 0., 0., 0.
 X = 1., 0., 0.
