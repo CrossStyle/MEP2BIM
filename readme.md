@@ -1,6 +1,6 @@
 # MEP2BIM
 
-This is the implementation of MEP2BIM, including two MEP system demos and a dataset in COCO format.
+This is the implementation of "Recovering building information model from 2D drawings for mechanical, electrical and plumbing systems of ageing buildings", including two MEP system demos and a dataset in COCO format.
 
 ## Installation
 
