@@ -11,7 +11,7 @@ conda create -n ifc -c conda-forge ifcopenshell=v0.7.0 pythonocc-core=7.7.0
 ## Usage
 
 ```
-python demo1.py or python demo2.py
+python demo1.py or python demo2.py or python demo3.py
 ```
 
 ## IFC  Visualization
